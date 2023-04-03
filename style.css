@@ -1,0 +1,30 @@
+body {
+    background-color: #e5d5ff;
+}
+
+section {
+    border-radius: 20px;
+    background-color: mediumpurple;
+    padding: 10px;
+    margin-left: 100px;
+    margin-top: 100px;
+    width: 400px;
+}
+
+div {
+    margin-bottom: 20px;
+}
+
+input {
+    width: 100px;
+}
+
+#cadastrar{
+    display: none;
+}
+
+/*
+.btn{
+    margin-top: 50px;
+}
+*/

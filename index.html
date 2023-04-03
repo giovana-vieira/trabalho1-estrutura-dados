@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title> Cadastro de Alunos UniTech </title>
+    <meta charset="utf-8" />
+    <link href="style.css" rel="stylesheet" />
+    <script src="script.mjs"> </script>
+</head>
+
+<body>
+    <section>
+
+        <div id="menu-selecao">
+            <h3> Cadastro de Alunos UniTech </h3>
+            <label for="selecao">Escolha uma opção</label>
+
+            <select name="selecao" id="selecao" onchange="selecionarOpcao()">
+                <option value="">Selecione uma opção</option>
+                <option value="cadastro">Cadastrar alunos</option>
+                <option value="nomeCrescente">Relatório de alunos em ordem crescente por nome</option>
+                <option value="raDecrescente">Relatório de alunos em ordem decrescente por RA</option>
+                <option value="aprovadosNomeCrescente">Relatório de alunos aprovados em ordem crescente por nome
+                </option>
+            </select>
+
+            <div>
+                <button type="button" onClick="sair()">Sair</button>
+            </div>
+        </div>
+
+        <div id="cadastrar">
+            <div>
+                Nome:
+                <input type="text" id="nome" />
+            </div>
+            <div>
+                R.A.:
+                <input type="number" id="ra" />
+            </div>
+            <div>
+                Idade:
+                <input type="number" id="idade" />
+            </div>
+            <div>
+                Sexo:
+                <br>
+                <input type="radio" id="masculino" name="sexo" value="Masculino"/>
+                <label for="masculino">Masculino</label><br>
+                <input type="radio" id="feminino" name="sexo" value="Feminino"/>
+                <label for="feminino">Feminino</label>
+            </div>
+            <div>
+                Média:
+                <input type="number" id="media" />
+            </div>
+            <div>
+                Resultado:
+                <br>
+                <input type="radio" id="aprovado" name="resultado" value="Aprovado"/>
+                <label for="aprovado">Aprovado</label><br>
+                <input type="radio" id="reprovado" name="resultado" value="Reprovado"/>
+                <label for="reprovado">Reprovado</label>
+            </div>
+            <div>
+                <button type="button" onClick="mostrarMenuSelecao()">Voltar</button>
+                <button type="button" onClick="novoCadastro()">Adicionar Aluno</button>
+            </div>
+            
+
+            <div>
+                <p id="resultado">
+
+                </p>
+            </div>
+        </div>
+
+    </section>
+</body>
+
+</html>
