@@ -9,6 +9,15 @@ function selecionarOpcao() {
     } else {
         mostrarMenuSelecao();
     }
+    if (option === 'nomeCrescente'){
+        ordenarPorNomeAluno();
+     }
+     if (option === 'raDecrescente'){
+         ordenarRA();
+ 
+     }
+     if (option === 'aprovadosNomeCrescente')
+     OrdenarAprovadoNomeCrescente()
 }
 
 function mostrarCadastro() {
@@ -56,3 +65,33 @@ function limpaRadio(elementName) {
         radio[i].checked = false;
     }
 }
+
+function ordenarPorNomeAluno() {
+    vetor.sort(function(a, b) {
+      if(a.nomeAluno < b.nomeAluno) { return -1; }
+      if(a.nomeAluno > b.nomeAluno) { return 1; }
+      return 0;
+    });
+    console.log(vetor);
+  }
+
+  function ordenarRA() {
+    vetor.sort(function(a, b) {
+      if(a.ra < b.ra) { return -1; }
+      if(a.ra > b.ra) { return 1; }
+      return 0;
+    });
+    console.log(vetor);
+  }
+
+function OrdenarAprovadoNomeCrescente(){
+
+        // Filtra apenas os alunos aprovados
+        const aprovados = vetor.filter(aluno => aluno.resultado === 'Aprovado');
+      
+        // Ordena o vetor filtrado pelo nome do aluno em ordem crescente
+        aprovados.sort((a, b) => a.nomeAluno.localeCompare(b.nomeAluno));
+      
+        // Exibe os alunos aprovados ordenados
+        console.log(aprovados);
+      }
