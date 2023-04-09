@@ -31,6 +31,10 @@ input {
     display: none;
 }
 
+#ecerrar-programa{
+    display: none;
+}
+
 table {
     border-radius: 20px;
     border-collapse: collapse;

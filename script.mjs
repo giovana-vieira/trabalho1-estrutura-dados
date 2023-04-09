@@ -1,55 +1,4 @@
-//let vetor = [];
-
-let vetor = [
-    {
-        "nomeAluno": "Jjjjj",
-        "ra": "123354",
-        "idade": "30",
-        "sexo": "Feminino",
-        "media": "8",
-        "resultado": "Aprovado"
-    },
-    {
-        "nomeAluno": "cccccc",
-        "ra": "0323",
-        "idade": "30",
-        "sexo": "Feminino",
-        "media": "9",
-        "resultado": "Aprovado"
-    },
-    {
-        "nomeAluno": "lllll",
-        "ra": "8465",
-        "idade": "50",
-        "sexo": "Masculino",
-        "media": "6",
-        "resultado": "Aprovado"
-    },
-    {
-        "nomeAluno": "BBBBB",
-        "ra": "23",
-        "idade": "20",
-        "sexo": "Masculino",
-        "media": "0",
-        "resultado": "Reprovado"
-    },
-    {
-        "nomeAluno": "b",
-        "ra": "23",
-        "idade": "20",
-        "sexo": "Masculino",
-        "media": "0",
-        "resultado": "Reprovado"
-    },
-    {
-        "nomeAluno": "aaaaa",
-        "ra": "23",
-        "idade": "20",
-        "sexo": "Masculino",
-        "media": "0",
-        "resultado": "Reprovado"
-    }
-]
+let vetor = [];
 
 function selecionarOpcao() {
 
@@ -66,7 +15,7 @@ function selecionarOpcao() {
             ordenarRA();
             break;
         case 'aprovadosNomeCrescente':
-            OrdenarAprovadoNomeCrescente();
+            ordenarAprovadoNomeCrescente();
             break;
         default:
             mostrarMenuSelecao();
@@ -75,45 +24,18 @@ function selecionarOpcao() {
 
 }
 
-function selectionSort(vetor_teste, fnComp) {
-
-    pass = 0, comps = 0, trocas = 0
-
-    // Loop posSel vai até a PENÚLTIMA posição do vetor
-    for (let posSel = 0; posSel < vetor_teste.length - 1; posSel++) {
-        pass++
-
-        let posMenor = posSel + 1
-
-        // Loop para procurar o menor valor no restante do vetor
-        for (let i = posMenor + 1; i < vetor_teste.length; i++) {
-            // if(vetor[posMenor] > vetor[i]) posMenor = i
-            if (fnComp(vetor_teste[posMenor], vetor_teste[i])) posMenor = i
-            comps++
-        }
-
-        // Se o valor em posMenor for menor que o valor em posSel,
-        // efetua a troca
-        comps++
-        // if(vetor[posSel] > vetor[posMenor]) {
-        if (fnComp(vetor_teste[posSel], vetor_teste[posMenor])) {
-            [vetor_teste[posSel], vetor_teste[posMenor]] = [vetor_teste[posMenor], vetor_teste[posSel]]
-            trocas++
-        }
-
-    }
-
-}
-
 function mostrarCadastro() {
     document.getElementById('menu-selecao').style.display = 'none';
     document.getElementById('cadastrar').style.display = 'block';
+    document.getElementById('resultado-lista').style.display = 'none';
 }
 
 function mostrarMenuSelecao() {
     document.getElementById('menu-selecao').style.display = 'block';
     document.getElementById('cadastrar').style.display = 'none';
+    document.getElementById('resultado-lista').style.display = 'block';
 }
+
 
 function novoCadastro() {
 
@@ -163,10 +85,10 @@ function ordenarPorNomeAluno() {
                 posMenor = i
             }
 
-            if (listaTemporaria[posSel].nomeAluno.toUpperCase() > listaTemporaria[posMenor].nomeAluno.toUpperCase()) {
-                [listaTemporaria[posSel], listaTemporaria[posMenor]] = [listaTemporaria[posMenor], listaTemporaria[posSel]]
-            }
+        }
 
+        if (listaTemporaria[posSel].nomeAluno.toUpperCase() > listaTemporaria[posMenor].nomeAluno.toUpperCase()) {
+            [listaTemporaria[posSel], listaTemporaria[posMenor]] = [listaTemporaria[posMenor], listaTemporaria[posSel]]
         }
 
     }
@@ -177,15 +99,34 @@ function ordenarPorNomeAluno() {
 }
 
 function ordenarRA() {
-    vetor.sort(function (a, b) {
-        if (a.ra < b.ra) { return -1; }
-        if (a.ra > b.ra) { return 1; }
-        return 0;
-    });
+
+    let ordenadoRa = [...vetor];
+
+    for (let posSel = 0; posSel < ordenadoRa.length - 1; posSel++) {
+
+        let posMaior = posSel + 1
+
+        for (let i = posMaior + 1; i < ordenadoRa.length; i++) {
+
+            if (ordenadoRa[posMaior].ra < ordenadoRa[i].ra) {
+                posMaior = i
+            }
+
+        }
+
+        if (ordenadoRa[posSel].ra < ordenadoRa[posMaior].ra) {
+            [ordenadoRa[posSel], ordenadoRa[posMaior]] = [ordenadoRa[posMaior], ordenadoRa[posSel]]
+        }
+
+    }
+
     console.log(vetor);
+    console.log(ordenadoRa);
+    exibirResultado(ordenadoRa);
+
 }
 
-function OrdenarAprovadoNomeCrescente() {
+function ordenarAprovadoNomeCrescente() {
 
     // Filtra apenas os alunos aprovados
     const aprovados = vetor.filter(aluno => aluno.resultado === 'Aprovado');
@@ -230,4 +171,10 @@ function exibirResultado(listaResultado) {
     `;
 
     document.getElementById("resultado-lista").innerHTML = relatorio;
+}
+
+function sair(){
+    document.getElementById('tela-principal').style.display = 'none';
+    document.getElementById('resultado-lista').style.display = 'none';
+    document.getElementById('ecerrar-programa').style.display = 'block';
 }
