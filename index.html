@@ -6,13 +6,16 @@
     <meta charset="utf-8" />
     <link href="style.css" rel="stylesheet" />
     <script src="script.mjs"> </script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=KoHo">
 </head>
 
 <body>
     <section>
 
         <div id="menu-selecao">
+
             <h3> Cadastro de Alunos UniTech </h3>
+
             <label for="selecao">Escolha uma opção</label>
 
             <select name="selecao" id="selecao" onchange="selecionarOpcao()">
@@ -27,6 +30,7 @@
             <div>
                 <button type="button" onClick="sair()">Sair</button>
             </div>
+
         </div>
 
         <div id="cadastrar">
@@ -45,9 +49,9 @@
             <div>
                 Sexo:
                 <br>
-                <input type="radio" id="masculino" name="sexo" value="Masculino"/>
+                <input type="radio" id="masculino" name="sexo" value="Masculino" />
                 <label for="masculino">Masculino</label><br>
-                <input type="radio" id="feminino" name="sexo" value="Feminino"/>
+                <input type="radio" id="feminino" name="sexo" value="Feminino" />
                 <label for="feminino">Feminino</label>
             </div>
             <div>
@@ -57,16 +61,16 @@
             <div>
                 Resultado:
                 <br>
-                <input type="radio" id="aprovado" name="resultado" value="Aprovado"/>
+                <input type="radio" id="aprovado" name="resultado" value="Aprovado" />
                 <label for="aprovado">Aprovado</label><br>
-                <input type="radio" id="reprovado" name="resultado" value="Reprovado"/>
+                <input type="radio" id="reprovado" name="resultado" value="Reprovado" />
                 <label for="reprovado">Reprovado</label>
             </div>
             <div>
                 <button type="button" onClick="mostrarMenuSelecao()">Voltar</button>
                 <button type="button" onClick="novoCadastro()">Adicionar Aluno</button>
             </div>
-            
+
 
             <div>
                 <p id="resultado">
@@ -75,7 +79,12 @@
             </div>
         </div>
 
+
     </section>
+
+    <div id="resultado-lista">
+    </div>
+
 </body>
 
 </html>

@@ -1,14 +1,22 @@
 body {
-    background-color: #e5d5ff;
+    font-family: "KoHo", sans-serif;
+    background-color: #b09fcc;
+    color: #fff;
 }
 
 section {
     border-radius: 20px;
-    background-color: mediumpurple;
+    background-color: rgb(83, 68, 114);
     padding: 10px;
     margin-left: 100px;
     margin-top: 100px;
     width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#menu-selecao>* {
+    margin-top: 10px;
 }
 
 div {
@@ -19,12 +27,36 @@ input {
     width: 100px;
 }
 
-#cadastrar{
+#cadastrar {
     display: none;
 }
 
-/*
-.btn{
-    margin-top: 50px;
+table {
+    border-radius: 20px;
+    border-collapse: collapse;
+    border-style: hidden;
+    width: 50%;
+    background: #f8f2ff;
+    color: #000;
+    margin-top: 36px;
+    padding: 12px;
+    margin-left: auto;
+    margin-right: auto;
 }
-*/
+
+td,
+th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
+#resultado-lista {
+    width: 100vw;
+    margin-left: auto;
+    margin-right: auto;
+}
